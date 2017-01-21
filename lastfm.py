@@ -13,6 +13,18 @@ BASE_PARAMS = {
 }
 
 
+def create_url_string(params):
+    """
+    Internal function to create an URL-encoded version of the parameters
+    passed in as an argument merged with those in the BASE_PARAMS
+    dictionary.
+    """
+    updated_params = {**params, **BASE_PARAMS}
+    query_string = urllib.parse.urlencode(updated_params)
+
+    return BASE_URL + query_string
+
+
 def get_similar_artists_url(artist, limit=5):
     used_params = {
         'method': 'artist.getSimilar',
