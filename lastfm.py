@@ -4,6 +4,7 @@ import json
 import urllib.parse
 import urllib.request
 
+
 BASE_URL = 'http://ws.audioscrobbler.com/2.0/?'
 
 # api_key kindly stolen from: https://github.com/ubitux/DynaMPD/
