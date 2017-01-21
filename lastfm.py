@@ -6,6 +6,7 @@ import urllib.request
 
 BASE_URL = 'http://ws.audioscrobbler.com/2.0/?'
 
+# api_key kindly stolen from: https://github.com/ubitux/DynaMPD/
 BASE_PARAMS = {
     'api_key': 'b25b959554ed76058ac220b7b2e0a026',
     'format': 'json',
