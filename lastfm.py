@@ -60,8 +60,8 @@ def get_json(url):
     Given a URL, make a network request, transform the JSON response into a
     Python dictionary and return that dictionary.
     """
-    with urllib.request.urlopen(url) as f:
-        data_str = f.read().decode()
+    with urllib.request.urlopen(url) as connection:
+        data_str = connection.read().decode()
 
     data = json.loads(data_str)
     return data
