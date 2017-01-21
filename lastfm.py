@@ -43,6 +43,10 @@ def get_similar_tracks_url(artist, track, limit=5):
 
 
 def get_json(url):
+    """
+    Given a URL, make a network request, transform the JSON response into a
+    Python dictionary and return that dictionary.
+    """
     with urllib.request.urlopen(url) as f:
         data_str = f.read().decode()
 
