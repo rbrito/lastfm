@@ -26,6 +26,10 @@ def create_url_string(params):
 
 
 def get_similar_artists_url(artist, limit=5):
+    """
+    Create an URL for getting similar artists from last.fm based on the
+    input parameter artist.
+    """
     used_params = {
         'method': 'artist.getSimilar',
         'artist': artist,
@@ -36,6 +40,10 @@ def get_similar_artists_url(artist, limit=5):
 
 
 def get_similar_tracks_url(artist, track, limit=5):
+    """
+    Create an URL for getting similar tracks from last.fm based on the
+    input parameters artist and track.
+    """
     used_params = {
         'method': 'track.getSimilar',
         'artist': artist,
