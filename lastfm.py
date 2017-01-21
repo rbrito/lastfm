@@ -4,9 +4,9 @@ import json
 import urllib.parse
 import urllib.request
 
-_url = 'http://ws.audioscrobbler.com/2.0/?'
+BASE_URL = 'http://ws.audioscrobbler.com/2.0/?'
 
-_params = {
+BASE_PARAMS = {
     'api_key': 'b25b959554ed76058ac220b7b2e0a026',
     'format': 'json',
 }
@@ -19,11 +19,11 @@ def get_similar_artists_url(artist, limit=5):
         'limit': limit,
     }
 
-    # To avoid using Python 3.5's syntax of {**used_params, **_params}
-    used_params.update(_params)
+    # To avoid using Python 3.5's syntax of {**used_params, **BASE_PARAMS}
+    used_params.update(BASE_PARAMS)
     query_string = urllib.parse.urlencode(used_params)
 
-    return _url + query_string
+    return BASE_URL + query_string
 
 
 def get_similar_tracks_url(artist, track, limit=5):
@@ -34,11 +34,11 @@ def get_similar_tracks_url(artist, track, limit=5):
         'limit': limit,
     }
 
-    # To avoid using Python 3.5's syntax of {**used_params, **_params}
-    used_params.update(_params)
+    # To avoid using Python 3.5's syntax of {**used_params, **BASE_PARAMS}
+    used_params.update(BASE_PARAMS)
     query_string = urllib.parse.urlencode(used_params)
 
-    return _url + query_string
+    return BASE_URL + query_string
 
 
 def get_json(url):
