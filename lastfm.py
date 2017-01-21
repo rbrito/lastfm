@@ -65,3 +65,12 @@ def list_top_similar_artists(query_artist):
     for artist in artists:
         print('Artist: %s, Similarity: %.2f%%' % (artist['name'],
                                                   100 * float(artist['match'])))
+
+
+def list_top_similar_tracks(query_artist, query_track):
+    url = get_similar_tracks_url(query_artist, query_track)
+    tracks = get_json(url)['similartracks']['track']
+
+    for track in tracks:
+        print('Track: %s, Artist: %s, Similarity: %.2f%%' %
+              (track['name'], track['artist']['name'], 100 * float(track['match'])))
