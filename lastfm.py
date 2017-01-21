@@ -18,7 +18,9 @@ def get_json(url):
     data = json.loads(data_str)
     return data
 
-artists = get_json(get_similar_artists_url('opeth'))['similarartists']['artist']
 
-for artist in artists:
-    print('Artist: %s, Similarity: %.2f%%' %(artist['name'], 100 * float(artist['match'])))
+def list_top_similar_artists(query_artist):
+    artists = get_json(get_similar_artists_url(query_artist))['similarartists']['artist']
+
+    for artist in artists:
+        print('Artist: %s, Similarity: %.2f%%' %(artist['name'], 100 * float(artist['match'])))
