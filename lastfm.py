@@ -32,11 +32,7 @@ def get_similar_artists_url(artist, limit=5):
         'limit': limit,
     }
 
-    # To avoid using Python 3.5's syntax of {**used_params, **BASE_PARAMS}
-    used_params.update(BASE_PARAMS)
-    query_string = urllib.parse.urlencode(used_params)
-
-    return BASE_URL + query_string
+    return create_url_string(used_params)
 
 
 def get_similar_tracks_url(artist, track, limit=5):
@@ -47,11 +43,7 @@ def get_similar_tracks_url(artist, track, limit=5):
         'limit': limit,
     }
 
-    # To avoid using Python 3.5's syntax of {**used_params, **BASE_PARAMS}
-    used_params.update(BASE_PARAMS)
-    query_string = urllib.parse.urlencode(used_params)
-
-    return BASE_URL + query_string
+    return create_url_string(used_params)
 
 
 def get_json(url):
