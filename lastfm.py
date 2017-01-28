@@ -13,6 +13,8 @@ import json
 import urllib.parse
 import urllib.request
 
+import argparse
+
 
 BASE_URL = 'http://ws.audioscrobbler.com/2.0/?'
 
@@ -92,3 +94,16 @@ def list_top_similar_tracks(query_artist, query_track):
     for track in tracks:
         print('Track: %s, Artist: %s, Similarity: %.2f%%' %
               (track['name'], track['artist']['name'], 100 * float(track['match'])))
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument('artist')
+    parser.add_argument('--track', help='Track name to get similar tracks to.')
+
+    args = parser.parse_args()
+
+    if args.track:
+        list_top_similar_tracks(args.artist, args.track)
+    else:
+        list_top_similar_artists(args.artist)
