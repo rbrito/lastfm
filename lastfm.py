@@ -37,7 +37,7 @@ def create_url_string(params):
     return BASE_URL + query_string
 
 
-def get_similar_artists_url(artist, limit=5):
+def get_similar_artists_url(artist, limit=20):
     """
     Create an URL for getting similar artists from last.fm based on the
     input parameter artist.
@@ -51,7 +51,7 @@ def get_similar_artists_url(artist, limit=5):
     return create_url_string(used_params)
 
 
-def get_similar_tracks_url(artist, track, limit=5):
+def get_similar_tracks_url(artist, track, limit=20):
     """
     Create an URL for getting similar tracks from last.fm based on the
     input parameters artist and track.
