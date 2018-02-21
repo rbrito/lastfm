@@ -79,6 +79,11 @@ def get_json(url):
 
 
 def list_top_similar_artists(query_artist, quantity):
+    """
+    Print the top similar artists to query_artist.
+
+    quantity: The number of similar artists to get from last.fm.
+    """
     url = get_similar_artists_url(query_artist, quantity)
     artists = get_json(url)['similarartists']['artist']
 
@@ -88,6 +93,11 @@ def list_top_similar_artists(query_artist, quantity):
 
 
 def list_top_similar_tracks(query_artist, query_track, quantity):
+    """
+    Print the top similar tracks to query_track by query_artist.
+
+    quantity: The number of similar tracks to get from last.fm.
+    """
     url = get_similar_tracks_url(query_artist, query_track, quantity)
     tracks = get_json(url)['similartracks']['track']
 
