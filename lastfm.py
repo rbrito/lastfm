@@ -95,11 +95,13 @@ def list_top_similar_tracks(query_artist, query_track, quantity):
         print('Track: %s, Artist: %s, Similarity: %.2f%%' %
               (track['name'], track['artist']['name'], 100 * float(track['match'])))
 
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
 
     parser.add_argument('artist')
-    parser.add_argument('--track', help='Track name to get similar tracks to.')
+    parser.add_argument('--track',
+                        help='Track name to get similar tracks to.')
     parser.add_argument('--quantity',
                         help='Number of tracks or artists to get similar results to. (Default: 20)',
                         type=int,
