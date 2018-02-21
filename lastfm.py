@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Small Python 3.5 module/program to query last.fm for similar artists or
+Small Python 3.5+ module/program to query last.fm for similar artists or
 tracks (which could be used to automatically add songs to currently running
 music players, using songs that the user already has).
 
