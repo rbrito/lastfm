@@ -78,8 +78,8 @@ def get_json(url):
     return data
 
 
-def list_top_similar_artists(query_artist):
-    url = get_similar_artists_url(query_artist)
+def list_top_similar_artists(query_artist, quantity):
+    url = get_similar_artists_url(query_artist, quantity)
     artists = get_json(url)['similarartists']['artist']
 
     for artist in artists:
@@ -87,8 +87,8 @@ def list_top_similar_artists(query_artist):
               (artist['name'], 100 * float(artist['match'])))
 
 
-def list_top_similar_tracks(query_artist, query_track):
-    url = get_similar_tracks_url(query_artist, query_track)
+def list_top_similar_tracks(query_artist, query_track, quantity):
+    url = get_similar_tracks_url(query_artist, query_track, quantity)
     tracks = get_json(url)['similartracks']['track']
 
     for track in tracks:
@@ -100,10 +100,14 @@ if __name__ == '__main__':
 
     parser.add_argument('artist')
     parser.add_argument('--track', help='Track name to get similar tracks to.')
+    parser.add_argument('--quantity',
+                        help='Number of tracks or artists to get similar results to. (Default: 20)',
+                        type=int,
+                        default=20)
 
     args = parser.parse_args()
 
     if args.track:
-        list_top_similar_tracks(args.artist, args.track)
+        list_top_similar_tracks(args.artist, args.track, args.quantity)
     else:
-        list_top_similar_artists(args.artist)
+        list_top_similar_artists(args.artist, args.quantity)
